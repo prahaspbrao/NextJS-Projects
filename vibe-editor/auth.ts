@@ -53,9 +53,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         })
 
         if(!existingAccount){
-          await db.account.create({})
+          await db.account.create({
+            data : {
+              userId:existingUser.id,
+              type:account.type,
+              provider:account.provider,
+              providerAccountId:account.providerAccountId,
+              refreshToken:account.refresh_token,
+              accessToken:account.access_token,
+              expiresAt:account.expires_at,
+              tokenType:account.token_type,
+              scope:account.scope,
+              idToken:account.id_token,
+
+              // @ts-ignore
+              sessionState:account.session_state
+            }
+          });
         }
       }
+
+      return true;
     },
     async jwt(){},
     async session(){}
