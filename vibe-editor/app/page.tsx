@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
+import UserButton from "@/modules/auth/components/user-button";
 
 export default async function Home() {
 
@@ -9,6 +10,8 @@ export default async function Home() {
       <Button >
       Get started!!
     </Button>
+
+    <UserButton/>
     </div>
     
   );
