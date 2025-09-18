@@ -27,9 +27,7 @@ export default function HomeLayout({
     [background-size:40px_40px]
   "
 >
-  <h1 className="p-10 text-4xl font-bold text-black dark:text-white">
-    Tailwind Grid Background
-  </h1>
+  
 </div>
 
 
