@@ -1,6 +1,8 @@
 // Here all the routes are defined for middleware
 
-export const publicRoutes: string[] = []
+export const publicRoutes: string[] = [
+
+]
 
 export const protectedRoutes: string[] = [
     "/",
