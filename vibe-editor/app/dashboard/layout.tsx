@@ -1,6 +1,6 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { getAllPlaygroundForUser } from "@/modules/dashboard/actions/inedex";
-import { DashboardSidebar } from "@/My_Notes/HC_version/modules/dashboard/components/dashboard-sidebar";
+import DashboardSidebar from "@/modules/dashboard/components/dashboard-sidebar";
 import { icons } from "lucide-react";
 
 export default async function DashboardLayout({
