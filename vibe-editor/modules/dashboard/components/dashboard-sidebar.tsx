@@ -78,7 +78,7 @@ export default function DashboardSidebar({ initialPlaygroundData }: { initialPla
               </div>
       <SidebarHeader>
         <div className="flex items-center gap-2 px-4 py-3 justify-center">
-          <Image src={"/logo.png"} alt="logo" height={20} width={20} />
+          <Image src={"/logo.png"} alt="logo" height={70} width={70} />
         </div>
 
       </SidebarHeader>
