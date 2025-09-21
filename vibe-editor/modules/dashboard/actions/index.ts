@@ -3,6 +3,7 @@
 import { db } from "@/lib/db";
 import { currentUser } from "@/modules/auth/actions";
 import { revalidatePath } from "next/cache";
+import { dlopen } from "process";
 
 export const getAllPlaygroundForUser = async () => {
     const user = await currentUser();
@@ -80,7 +81,31 @@ export const editProjectById = async (id : string , data : {title : string , des
 
 export const duplicateProjectById = async (id : string) => {
     try {
-        
+        const originalplayground = await db.playground.findUnique({
+            where : {
+                id
+            }
+
+            // todo : Add template files
+        })
+
+        if(!originalplayground){
+            throw new Error("Original playground not found!!");
+        }
+
+        const duplicatedPlayground = await db.playground.create({
+            data : {
+                title : `${originalplayground.title} (Copy)`,
+                description : originalplayground.description,
+                template : originalplayground.template,
+                userId : originalplayground.userId
+
+                // todo : add template files
+            }
+        })
+
+        revalidatePath("/dashboard")
+        return duplicatedPlayground
     } catch (error) {
         console.log(error);
     }
