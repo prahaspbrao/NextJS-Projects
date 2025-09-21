@@ -114,6 +114,7 @@ export default function ProjectTable({
 
   const handleMarkasFavorite = async (project: Project) => {
     // todo
+    
   }
 
   const handleDeleteProject = async () => {
