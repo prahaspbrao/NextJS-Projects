@@ -78,35 +78,37 @@ export default function ProjectTable({
 
 
   const handleEditClick = (project: Project) => {
-    setSelectedProject(project)
+    setSelectedProject(project);
     setEditData({
-      title: project.title,
-      description: project.description || ""
+      title : project.title,
+      description : project.description || "",
     })
-    setEditDialogOpen(true)
+
+    setEditDialogOpen(true);
   }
 
   const handleDeleteClick = async (project: Project) => {
     setSelectedProject(project)
+
     setDeleteDialogOpen(true)
   }
 
   const handleUpdateProject = async () => {
-    // ! didnt understood
-    if (!selectedProject || !onUpdateProject) return;
-
-    setIsLoading(true)
-
-    try {
-      await onUpdateProject(selectedProject.id, editData)
-      setEditDialogOpen(false)
-      toast.success("Project Upadted Successfully")
-    } catch (error) {
-      toast.error("Failed to update project")
-      console.error(`Error Updating Project handleUpdateProject: ${error}`)
-    } finally {
-      setIsLoading(false)
+    if(!selectedProject || !onUpdateProject){
+      return;
     }
+
+    setIsLoading(true);
+     try {
+        await onUpdateProject(selectedProject.id ,editData);
+        setEditDialogOpen(false);
+        toast.success("Project Updated Successfully!!");
+     } catch (error) {
+      toast.error("Failed to update the project!!")
+      console.log(error);
+     }finally{
+      setIsLoading(false);
+     }
 
   }
 
