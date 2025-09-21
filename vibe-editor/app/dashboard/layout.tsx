@@ -1,5 +1,5 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { getAllPlaygroundForUser } from "@/modules/dashboard/actions/inedex";
+import { getAllPlaygroundForUser } from "@/modules/dashboard/actions";
 import DashboardSidebar from "@/modules/dashboard/components/dashboard-sidebar";
 import { icons } from "lucide-react";
 

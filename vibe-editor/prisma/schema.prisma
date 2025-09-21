@@ -22,11 +22,11 @@ model User {
   role     UserRole  @default(USER)
 
   myPlayground Playground[]
+  staredplayground StarMark[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  StarMark StarMark[]
 }
 
 model Account {
@@ -68,16 +68,15 @@ model Playground {
   Starmark    StarMark[]
   userId      String
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  // todo : template files
 }
 
 model StarMark {
-  id String @id @default(cuid()) @map("_id")
-  userId String
+  id         String     @id @default(cuid()) @map("_id")
+  userId     String
   playground String
-  isMarked Boolean
-  createdAt DateTime @default(now())
-  user User @relation(fields: [userId] , references: [id] , onDelete: Cascade)
-  plaground Playground @relation(fields: [playground] , references: [id] , onDelete: Cascade)
+  isMarked   Boolean
+  createdAt  DateTime   @default(now())
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plaground  Playground @relation(fields: [playground], references: [id], onDelete: Cascade)
 }
+
