@@ -152,9 +152,9 @@ export default function ProjectTable({
   }
 
   const copyProjectUrl = (projectId: string) => {
-    const url = `${window.location.origin}/playgroud/${projectId}`
-    navigator.clipboard.writeText(url)
-    toast.success("Project Url Copied")
+    const url = `${window.location.origin}/playground/${projectId}`;
+    navigator.clipboard.writeText(url);
+    toast.success("Project url copied to clipboard");
   }
 
 
